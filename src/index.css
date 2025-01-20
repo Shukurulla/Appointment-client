@@ -1,0 +1,14 @@
+main {
+  width: 30%;
+}
+
+@media (max-width: 500px) {
+  main {
+    width: 80%;
+  }
+}
+@media (max-width: 700px) {
+  main {
+    width: 60%;
+  }
+}

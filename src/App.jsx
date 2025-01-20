@@ -21,12 +21,17 @@ const App = () => {
       phone: "+998" + phone,
       date: formatDate(time, new Date().getFullYear() + ""),
     });
+    console.log({
+      name,
+      phone: "+998" + phone,
+      date: formatDate(time, new Date().getFullYear() + ""),
+    });
     setName("");
     setPhone("");
     setTime("");
   };
   return (
-    <main class="form-signin w-25  m-auto my-5 py-5">
+    <main class="form-signin  m-auto my-5 py-5">
       <Toaster></Toaster>
       <form onSubmit={(e) => submitHandler(e)}>
         <h1 class="h3 mb-3 fw-normal">Бронировать</h1>
