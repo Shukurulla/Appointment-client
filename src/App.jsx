@@ -38,6 +38,7 @@ const App = () => {
             id="floatingInput"
             placeholder="name"
             value={name}
+            required
             onChange={(e) => setName(e.target.value)}
           />
         </div>
@@ -52,6 +53,7 @@ const App = () => {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             aria-label="Phone"
+            required
             aria-describedby="basic-addon1"
           />
         </div>
