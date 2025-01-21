@@ -2,15 +2,22 @@ import React, { useState } from "react";
 import AppointmentService from "../service/appointment.service";
 import toast, { Toaster } from "react-hot-toast";
 import getRemainingHoursToday from "../utils/formatDate";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import formatDate from "../utils/reverseDate";
 const Form = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [time, setTime] = useState("");
   const [day, setDay] = useState(getRemainingHoursToday()[0]);
-
+  const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.appointment);
+  const thisDay =
+    new Date().getFullYear() +
+    "-" +
+    new Date().getMonth() +
+    1 +
+    "-" +
+    new Date().getDate();
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -26,9 +33,24 @@ const Form = () => {
       phone: "+998" + phone,
       date: formatDate(`${day} ${time}`, new Date().getFullYear()),
     });
+    console.log({
+      name,
+      phone: "+998" + phone,
+      date: formatDate(`${day} ${time}`, new Date().getFullYear()),
+    });
+
     setName("");
     setPhone("");
     setTime("");
+  };
+
+  const dateToText = (date) => {
+    if (new Date().getDate() == date.slice(0, 2)) {
+      return "сегодня";
+    } else if (new Date().getDate() + 1 == date.slice(0, 2)) {
+      return "завтра";
+    }
+    return date;
   };
 
   return (
@@ -70,7 +92,7 @@ const Form = () => {
             onChange={(e) => setDay(e.target.value)}
           >
             {getRemainingHoursToday().map((item) => (
-              <option value={item}>{item}</option>
+              <option value={item}>{dateToText(item)}</option>
             ))}
           </select>
           <input
