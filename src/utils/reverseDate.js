@@ -14,17 +14,14 @@ function formatDate(inputDate, year) {
     декабрь: "12",
   };
 
-  // Kiruvchi sana formatini ajratish
   const [day, monthWord, time] = inputDate.split(" ");
 
-  // Oylik xaritadan mos raqamni olish
   const month = monthMap[monthWord.toLowerCase()];
 
   if (!month) {
     throw new Error(`Noto'g'ri oy nomi: ${monthWord}`);
   }
 
-  // To'g'ri formatni qaytarish
   return `${year}-${month}-${day.padStart(2, "0")} ${time}:00`;
 }
 

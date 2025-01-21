@@ -1,7 +1,6 @@
 function getRemainingHoursToday() {
   const now = new Date();
 
-  // Rus tilidagi oylar
   const months = [
     "январь",
     "февраль",
@@ -17,20 +16,30 @@ function getRemainingHoursToday() {
     "декабрь",
   ];
 
-  const day = now.getDate(); // Hozirgi kun
-  const month = months[now.getMonth()]; // Ruscha oy
-  const currentHour = now.getHours() + 1; // Hozirgi soat
-  const hours = [];
+  const currentDay = now.getDate();
+  const currentMonth = now.getMonth();
+  const month = months[currentMonth];
+  const days = [];
 
-  for (let hour = currentHour; hour <= 23; hour++) {
-    const formattedHour = hour.toString().padStart(2, "0") + ":00";
-    hours.push(`${day} ${month} ${formattedHour}`);
+  const daysInCurrentMonth = new Date(
+    now.getFullYear(),
+    currentMonth + 1,
+    0
+  ).getDate();
+
+  for (let i = 0; i < 15; i++) {
+    let day = currentDay + i;
+    let monthToUse = month;
+
+    if (day > daysInCurrentMonth) {
+      day -= daysInCurrentMonth;
+      monthToUse = months[currentMonth + 1] || months[0];
+    }
+
+    days.push(`${day} ${monthToUse}`);
   }
 
-  // Kun tugashi bilan yana 00:00 ni qo'shamiz
-  hours.push(`${day} ${month} 00:00`);
-
-  return hours;
+  return days;
 }
 
 export default getRemainingHoursToday;
