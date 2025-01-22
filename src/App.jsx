@@ -21,11 +21,6 @@ const App = () => {
       phone: "+998" + phone,
       date: formatDate(time, new Date().getFullYear() + ""),
     });
-    console.log({
-      name,
-      phone: "+998" + phone,
-      date: formatDate(time, new Date().getFullYear() + ""),
-    });
     setName("");
     setPhone("");
     setTime("");
