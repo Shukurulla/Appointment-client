@@ -21,7 +21,7 @@ li {
 }
 @media (max-width: 600px) {
   main {
-    width: 90%;
+    width: 100%;
   }
   .list {
     width: 100% !important;
