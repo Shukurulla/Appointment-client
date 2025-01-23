@@ -5,7 +5,7 @@ body {
 main {
   width: 80%;
   margin: auto;
-  min-width: 400px;
+  min-width: 300px;
 }
 .select-day {
   width: 200px !important;
