@@ -118,6 +118,7 @@ const Form = () => {
             type="time"
             value={time}
             required
+            placeholder="время"
             onChange={(e) => setTime(e.target.value)}
             className="form-control time-input"
           />
