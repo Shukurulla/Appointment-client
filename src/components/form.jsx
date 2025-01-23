@@ -89,7 +89,7 @@ const Form = () => {
             +998
           </span>
           <input
-            type="text"
+            type="number"
             className="form-control"
             placeholder="Телефон"
             value={formattedNumber}
