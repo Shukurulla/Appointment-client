@@ -9,7 +9,7 @@ const Form = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState(""); // To'liq telefon raqami uchun
   const [formattedNumber, setFormattedNumber] = useState(""); // Foydalanuvchiga ko'rinadigan format
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState("--:--");
   const [day, setDay] = useState(getRemainingHoursToday()[0]);
   const dispatch = useDispatch();
   const [error, setError] = useState({
