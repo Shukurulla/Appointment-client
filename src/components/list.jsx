@@ -22,8 +22,19 @@ const List = () => {
     setCurrentPage(event.selected);
   };
 
-  return (
-    <div className=" ">
+  const dateToText = (date) => {
+    if (new Date().getDate() == date) {
+      return "сегодня";
+    } else if (new Date().getDate() + 1 == date) {
+      return "завтра";
+    }
+    return date;
+  };
+
+  return appointments.error ? (
+    <p>{appointments.error}</p>
+  ) : (
+    <div className="">
       {isLoading ? (
         <p>Loading...</p>
       ) : (
@@ -36,7 +47,7 @@ const List = () => {
               <b>{item.name}</b>
               <span className="badge bg-primary rounded-pill">
                 <i className="bi bi-alarm mx-2"></i>
-                сегодня
+                {dateToText(item.date.slice(8, 11))}
                 {item.date.slice(10, 16)}
               </span>
             </li>

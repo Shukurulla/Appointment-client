@@ -68,7 +68,7 @@ const Form = () => {
   };
 
   return (
-    <main className="form-signin m-auto">
+    <div className="form-signin m-auto">
       <Toaster />
       <form onSubmit={submitHandler}>
         <h1 className="h3 mb-3 fw-normal">Бронировать</h1>
@@ -119,7 +119,7 @@ const Form = () => {
             value={time}
             required
             onChange={(e) => setTime(e.target.value)}
-            className="form-control w-25"
+            className="form-control time-input"
           />
         </div>
 
@@ -131,7 +131,7 @@ const Form = () => {
           Бронировать
         </button>
       </form>
-    </main>
+    </div>
   );
 };
 

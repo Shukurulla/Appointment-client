@@ -3,15 +3,28 @@ body {
   overflow-x: hidden;
 }
 main {
-  width: 60%;
+  width: 80%;
+  margin: auto;
+  min-width: 400px;
+}
+.select-day {
+  width: 200px !important;
 }
 li {
   border-radius: 10px;
 }
-
+.time-input {
+  width: 200px !important;
+}
+.list {
+  width: 80%;
+}
 @media (max-width: 600px) {
   main {
     width: 90%;
+  }
+  .list {
+    width: 100% !important;
   }
 }
 @media (max-width: 700px) {

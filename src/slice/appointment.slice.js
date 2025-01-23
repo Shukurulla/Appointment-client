@@ -5,6 +5,7 @@ const appointmentSlice = createSlice({
   initialState: {
     isLoading: false,
     appointments: [],
+    selectionDay: "",
   },
   reducers: {
     getAppointmentStart: (state) => {

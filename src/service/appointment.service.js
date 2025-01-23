@@ -25,14 +25,14 @@ const AppointmentService = {
       dispatch(getAppointmentFailure());
     }
   },
-  async getAppointments(dispatch) {
+  async getAppointments(dispatch, date) {
     dispatch(getAppointmentStart());
     try {
-      const { data } = await axios.get("/appointments");
+      const { data } = await axios.get(`/appointments/${date}`);
 
       dispatch(getAppointmentSuccess(data));
     } catch (error) {
-      toast.error(error.response.data.message);
+      dispatch(getAppointmentSuccess({ error: error.response.data.message }));
       dispatch(getAppointmentFailure());
     }
   },
